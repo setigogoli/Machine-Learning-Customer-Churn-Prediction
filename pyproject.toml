@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "telco-churn-course-project"
+version = "1.0.0"
+description = "Telco customer churn classification and retention-cost analysis"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.0,<3", "pandas>=2.2,<3", "scikit-learn>=1.8,<1.9",
+    "imbalanced-learn>=0.14.2,<0.15", "matplotlib>=3.9,<4", "joblib>=1.4,<2",
+]
+authors = [
+    {name = "Setayesh Heydari"}, {name = "Amir Hossein Shahrabi"},
+    {name = "Amir Abbas Donyadideh"}, {name = "Bardia Soltani Moakhar"},
+]
+
+[project.optional-dependencies]
+report = ["reportlab>=4.4,<5"]
+notebook = ["jupyterlab>=4,<5", "nbclient>=0.10,<1", "nbformat>=5,<6", "ipykernel>=6,<8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

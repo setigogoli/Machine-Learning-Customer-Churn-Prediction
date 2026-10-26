@@ -1,0 +1,103 @@
+{
+  "dataset": {
+    "raw_rows": 7043,
+    "raw_columns": 21,
+    "duplicate_rows_removed": 0,
+    "missing_total_charges_removed": 11,
+    "clean_rows": 7032,
+    "non_churn": 5163,
+    "churn": 1869,
+    "sha256": "16320c9c1ec72448db59aa0a26a0b95401046bef5d02fd3aeb906448e3055e91"
+  },
+  "train_rows": 4922,
+  "test_rows": 2110,
+  "test_churn": 561,
+  "split_seed": 40,
+  "cv_seed": 42,
+  "selected_model": "Tuned random forest + SMOTE",
+  "decision_threshold": 0.5,
+  "selection_rule": "Highest mean 5-fold training CV recall with mean F1 >= 0.50; tie-break by F1, then name.",
+  "test_metrics": {
+    "accuracy": 0.7369668246445498,
+    "precision": 0.5032051282051282,
+    "recall": 0.839572192513369,
+    "f1": 0.6292585170340681,
+    "roc_auc": 0.8546719233500079,
+    "average_precision": 0.6757182740139026,
+    "brier_score": 0.16500253433953274,
+    "confusion_matrix": [
+      [
+        1084,
+        465
+      ],
+      [
+        90,
+        471
+      ]
+    ]
+  },
+  "dummy_test_metrics": {
+    "accuracy": 0.7341232227488151,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "roc_auc": 0.5,
+    "average_precision": 0.26587677725118486,
+    "brier_score": 0.26587677725118486,
+    "confusion_matrix": [
+      [
+        1549,
+        0
+      ],
+      [
+        561,
+        0
+      ]
+    ]
+  },
+  "calibration": {
+    "uncalibrated_brier": 0.16500253433953274,
+    "calibrated_brier": 0.13273855179081795,
+    "calibrated_roc_auc": 0.8553439686808464
+  },
+  "tuning": {
+    "Tuned logistic regression + SMOTE": {
+      "best_parameters": {
+        "model__C": 1.0,
+        "model__l1_ratio": 0.0,
+        "model__solver": "lbfgs"
+      },
+      "combinations": 6
+    },
+    "Tuned random forest + SMOTE": {
+      "best_parameters": {
+        "model__criterion": "entropy",
+        "model__max_depth": 4,
+        "model__max_features": "sqrt",
+        "model__n_estimators": 100
+      },
+      "combinations": 8
+    }
+  },
+  "retention_assumptions": {
+    "loss": 500,
+    "low_cost": 50,
+    "high_cost": 100,
+    "low_success": 0.3,
+    "high_success": 0.6
+  },
+  "retention_action_counts": {
+    "none": 1322,
+    "low": 0,
+    "high": 788
+  },
+  "python_version": "3.12.14",
+  "package_versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "imbalanced-learn": "0.14.2",
+    "matplotlib": "3.10.8",
+    "joblib": "1.5.3"
+  }
+}
